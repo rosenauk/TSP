@@ -104,8 +104,28 @@ void Graph::primMST() {
         key.push_back(INF); //set key to infinite
         set.push_back(false); //set false since not yet viewed
     }
+    
+    int totalDistance = 0;
     key[0] = 0; 
+    int current = 0;
     parent[0] = -1; //int so substituting -1 as NULL
+
+
+    ////////////////////////////
+    for(int i =1; i < V; i++) {
+        int shortest = 99999;
+        int shortNode;
+        for(int k=0; k < V; k++) {
+            int d = 99999;
+            bool valid = true;
+            if(k != current) {
+                
+            }
+        }
+    }   
+
+
+    ////////////////////////////////
 
     for (int i = 0; i < V - 1; i++) { //for each of our vertices
         int u = extractMin(key, set); //get our min value
