@@ -9,9 +9,48 @@ using namespace std;
 
 int main()
 {
-    ifstream in;
-    ofstream out("test-input-7.txt.tour");
-    in.open("test-input-7.txt");
+    int testOpt;
+    cout << "Which test do you want to run? \n(1) Test 1\n(2) Test 2\n(1) Test 1\n(3) Test 3\n(4) Test 4\n(5) Test 5\n(6) Test 6\n(7) Test 7\n";
+    cin >> testOpt;
+
+ifstream in;
+ofstream out;
+
+    if (testOpt == 1)
+    {
+        out.open("test-input-1.txt.tour");
+        in.open("test-input-1.txt");
+    }
+    if (testOpt == 2)
+    {
+        out.open("test-input-2.txt.tour");
+        in.open("test-input-2.txt");
+    }
+    if (testOpt == 3)
+    {
+        out.open("test-input-3.txt.tour");
+        in.open("test-input-3.txt");
+    }
+    if (testOpt == 4)
+    {
+        out.open("test-input-4.txt.tour");
+        in.open("test-input-4.txt");
+    }
+    if (testOpt == 5)
+    {
+        out.open("test-input-5.txt.tour");
+        in.open("test-input-5.txt");
+    }
+    if (testOpt == 6)
+    {
+        out.open("test-input-6.txt.tour");
+        in.open("test-input-6.txt");
+    }
+    if (testOpt == 7)
+    {
+        out.open("test-input-7.txt.tour");
+        in.open("test-input-7.txt");
+    }
 
     int trash;
     int size;
@@ -21,6 +60,46 @@ int main()
         in >> size;
         in >> trash >> trash;
     }
+
+    in.close();
+
+    //**********************
+    if (testOpt == 1)
+    {
+        out.open("test-input-1.txt.tour");
+        in.open("test-input-1.txt");
+    }
+    if (testOpt == 2)
+    {
+        out.open("test-input-2.txt.tour");
+        in.open("test-input-2.txt");
+    }
+    if (testOpt == 3)
+    {
+        out.open("test-input-3.txt.tour");
+        in.open("test-input-3.txt");
+    }
+    if (testOpt == 4)
+    {
+        out.open("test-input-4.txt.tour");
+        in.open("test-input-4.txt");
+    }
+    if (testOpt == 5)
+    {
+        out.open("test-input-5.txt.tour");
+        in.open("test-input-5.txt");
+    }
+    if (testOpt == 6)
+    {
+        out.open("test-input-6.txt.tour");
+        in.open("test-input-6.txt");
+    }
+    if (testOpt == 7)
+    {
+        out.open("test-input-7.txt.tour");
+        in.open("test-input-7.txt");
+    }
+    //**********************
 
     size = size + 1;
 
@@ -37,6 +116,8 @@ int main()
         }
     }
 
+    cout << "tester: " << unvisited[5] << " \n";
+
     for (int i = 0; i < size; i++)
     {
         visited[i] = 0;
@@ -51,7 +132,7 @@ int main()
         cout << "cities visited: " << j + 1 << " / " << size << '\n';
 
         int shortest = 99999;
-        int shortNode;
+        int shortNode = 999999;
         for (int k = 0; k < size; k++)
         {
             //distance formula for current node to all other nodes
@@ -83,10 +164,20 @@ int main()
             }
         
         }
-
+        if (shortNode == 999999)
+        {
+            shortNode = 0;
+        }
         current = shortNode;
         visited[j] = shortNode;
         totalDis = totalDis + shortNode;
+
+        cout << "path so far:\n";
+        for (int n = 0; n < size; n++)
+        {
+            cout <<  visited[n] << " \n";
+        }
+       
 
     }
 
