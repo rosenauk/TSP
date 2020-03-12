@@ -15,43 +15,7 @@ int main(int argc, char* argv[])
 
 ifstream in;
 ofstream out;
-/*
-    if (testOpt == 1)
-    {
-        out.open("test-input-1.txt.tour");
-        in.open("test-input-1.txt");
-    }
-    if (testOpt == 2)
-    {
-        out.open("test-input-2.txt.tour");
-        in.open("test-input-2.txt");
-    }
-    if (testOpt == 3)
-    {
-        out.open("test-input-3.txt.tour");
-        in.open("test-input-3.txt");
-    }
-    if (testOpt == 4)
-    {
-        out.open("test-input-4.txt.tour");
-        in.open("test-input-4.txt");
-    }
-    if (testOpt == 5)
-    {
-        out.open("test-input-5.txt.tour");
-        in.open("test-input-5.txt");
-    }
-    if (testOpt == 6)
-    {
-        out.open("test-input-6.txt.tour");
-        in.open("test-input-6.txt");
-    }
-    if (testOpt == 7)
-    {
-        out.open("test-input-7.txt.tour");
-        in.open("test-input-7.txt");
-    }
-    */
+
 
    // string output = argv[1];
    // output += ".tour";
@@ -66,6 +30,7 @@ ofstream out;
 
     cout << output << "*******************\n";
 
+
     int trash;
     int size;
 
@@ -77,39 +42,7 @@ ofstream out;
 
     in.close();
 
-    //**********************
-    /*
-    if (testOpt == 1)
-    {
-       
-        in.open("test-input-1.txt");
-    }
-    if (testOpt == 2)
-    {
-        in.open("test-input-2.txt");
-    }
-    if (testOpt == 3)
-    {
-        in.open("test-input-3.txt");
-    }
-    if (testOpt == 4)
-    {
-        in.open("test-input-4.txt");
-    }
-    if (testOpt == 5)
-    {
-        in.open("test-input-5.txt");
-    }
-    if (testOpt == 6)
-    {
-        in.open("test-input-6.txt");
-    }
-    if (testOpt == 7)
-    {
-        in.open("test-input-7.txt");
-    }
-    //*********************
-    */
+
     in.open(argv[1]);
     size = size + 1;
 
