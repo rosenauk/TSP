@@ -66,7 +66,7 @@ ofstream out;
     //**********************
     if (testOpt == 1)
     {
-        out.open("test-input-1.txt.tour");
+       
         in.open("test-input-1.txt");
     }
     if (testOpt == 2)
@@ -170,7 +170,7 @@ ofstream out;
         }
         current = shortNode;
         visited[j] = shortNode;
-        totalDis = totalDis + shortNode;
+        totalDis = totalDis + shortest;
 
         cout << "path so far:\n";
         for (int n = 0; n < size; n++)
