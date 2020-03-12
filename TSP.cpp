@@ -44,7 +44,7 @@ int main()
     int current = 0;
     //visited[0] = 0;
 
-    for (int j = 1; j < size; j++)
+    for (int j = 0; j < size; j++)
     {
         int shortest = 99999;
         int shortNode;
@@ -72,6 +72,7 @@ int main()
                     {
                         shortest = dis;
                         shortNode = k;
+                        current = k;
                     }
                 }
                 
