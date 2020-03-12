@@ -71,32 +71,26 @@ ofstream out;
     }
     if (testOpt == 2)
     {
-        out.open("test-input-2.txt.tour");
         in.open("test-input-2.txt");
     }
     if (testOpt == 3)
     {
-        out.open("test-input-3.txt.tour");
         in.open("test-input-3.txt");
     }
     if (testOpt == 4)
     {
-        out.open("test-input-4.txt.tour");
         in.open("test-input-4.txt");
     }
     if (testOpt == 5)
     {
-        out.open("test-input-5.txt.tour");
         in.open("test-input-5.txt");
     }
     if (testOpt == 6)
     {
-        out.open("test-input-6.txt.tour");
         in.open("test-input-6.txt");
     }
     if (testOpt == 7)
     {
-        out.open("test-input-7.txt.tour");
         in.open("test-input-7.txt");
     }
     //**********************
@@ -167,6 +161,7 @@ ofstream out;
         if (shortNode == 999999)
         {
             shortNode = 0;
+            shortest = sqrt(pow(x[current] - x[shortNode], 2) + pow(y[current] - y[shortNode], 2));
         }
         current = shortNode;
         visited[j] = shortNode;
