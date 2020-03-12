@@ -2,8 +2,9 @@
 #include<cmath>
 #include<iomanip>
 #include<fstream>
-
+#include <string>
 #include <iostream>
+#include <cstring>
 
 using namespace std;
 
@@ -24,9 +25,9 @@ ofstream out;
     //out.open(output.c_str);
     string output = string(argv[1]);
     output += ".tour";
-    //out.open(output.c_str);
-    out.open("MyTest.txt");
-    //ofstream out(output);
+    
+    out.open(output.c_str());
+    
 
     cout << output << "*******************\n";
 
