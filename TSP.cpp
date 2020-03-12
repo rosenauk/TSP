@@ -10,17 +10,19 @@ using namespace std;
 int main()
 {
     ifstream in;
-    ofstream out("test-input-1.txt.tour");
-    in.open("test-input-1.txt");
+    ofstream out("test-input-7.txt.tour");
+    in.open("test-input-7.txt");
 
     int trash;
     int size;
 
     while (!in.eof()) {
-        in >> trash >> trash;
 
         in >> size;
+        in >> trash >> trash;
     }
+
+    size = size + 1;
 
     int* unvisited = new int [size];
     int* x = new int[size];
@@ -46,6 +48,8 @@ int main()
 
     for (int j = 0; j < size; j++)
     {
+        cout << "cities visited: " << j + 1 << " / " << size << '\n';
+
         int shortest = 99999;
         int shortNode;
         for (int k = 0; k < size; k++)
@@ -72,14 +76,15 @@ int main()
                     {
                         shortest = dis;
                         shortNode = k;
-                        current = k;
+                        
                     }
                 }
                 
             }
-
+        
         }
 
+        current = shortNode;
         visited[j] = shortNode;
         totalDis = totalDis + shortNode;
 
