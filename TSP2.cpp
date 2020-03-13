@@ -5,32 +5,29 @@
 #include <string>
 #include <iostream>
 #include <cstring>
+#include <chrono>
 
 using namespace std;
 
 int main(int argc, char* argv[])
 {
-    //int testOpt;
-    //cout << "Which test do you want to run? \n(1) Test 1\n(2) Test 2\n(1) Test 1\n(3) Test 3\n(4) Test 4\n(5) Test 5\n(6) Test 6\n(7) Test 7\n";
-    //cin >> testOpt;
+    auto start = chrono::high_resolution_clock::now(); //start the clock
+    
 
-ifstream in;
-ofstream out;
+    ifstream in;
+    ofstream out;
 
-
-   // string output = argv[1];
-   // output += ".tour";
     in.open(argv[1]);
 
-    //out.open(output.c_str);
+    
     string output = string(argv[1]);
     output += ".tour";
     
     out.open(output.c_str());
-    
+
 
     cout << output << "*******************\n";
-
+    cout << "Processing..." << endl;
 
     int trash;
     int size;
@@ -72,7 +69,7 @@ ofstream out;
 
     for (int j = 0; j < size; j++)
     {
-        cout << "cities visited: " << j + 1 << " / " << size << '\n';
+        //cout << "cities visited: " << j + 1 << " / " << size << '\n';
 
         int shortest = 99999;
         int shortNode = 999999;
@@ -89,6 +86,7 @@ ofstream out;
                     if (unvisited[k] == visited[l])
                     {
                         valid = false;
+                        break;
                     }
                 }
 
@@ -134,8 +132,17 @@ ofstream out;
         out << visited[m];
         out << endl;
     }
+    out.close();
 
-    cout << "Tour completed \n";
+    auto end = chrono::high_resolution_clock::now(); //end the clock
+
+        //record duration, start - end, only for sorting algorithm
+    double time_taken = chrono::duration_cast<chrono::nanoseconds>(end - start).count(); 
+        
+    time_taken *= 1e-9; //convert to seconds keeping decimal points for precision
+  
+        cout << "Time Taken: " << fixed << time_taken << " seconds" << endl;
+        cout << "Tour completed \n";
 
     delete[] unvisited;
     delete[] visited;
@@ -143,4 +150,5 @@ ofstream out;
     delete[] y;
 
 }
+
 
