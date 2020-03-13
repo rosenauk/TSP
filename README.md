@@ -6,7 +6,7 @@ to run on flip server:
 
 g++ TSP2.cpp -o main
 
-./main <input file>
+./main 'input file'
 
 make sure:
 
@@ -17,5 +17,5 @@ New way to run with time tracking:
 
 g++ TSP2.cpp --std=c++11
 
-a.out <input file>
+a.out 'input file'
 
