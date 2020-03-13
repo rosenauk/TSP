@@ -93,7 +93,8 @@ int main(int argc, char* argv[])
                 if (valid == true)
                 {
                     //dist uses unvisited 'current' x and y and unvisited 'k' x and y
-                    dis = sqrt(pow(x[current] - x[k], 2) + pow(y[current] - y[k], 2));
+                    double tD = sqrt(pow(x[current] - x[k], 2) + pow(y[current] - y[k], 2));
+                    dis = round(tD);
                     if (dis < shortest)
                     {
                         shortest = dis;
@@ -108,7 +109,8 @@ int main(int argc, char* argv[])
         if (shortNode == 999999)
         {
             shortNode = 0;
-            shortest = sqrt(pow(x[current] - x[shortNode], 2) + pow(y[current] - y[shortNode], 2));
+            double newShort = sqrt(pow(x[current] - x[shortNode], 2) + pow(y[current] - y[shortNode], 2));
+            shortest = round(newShort);
         }
         current = shortNode;
         visited[j] = shortNode;
