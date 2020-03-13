@@ -10,26 +10,17 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-    //int testOpt;
-    //cout << "Which test do you want to run? \n(1) Test 1\n(2) Test 2\n(1) Test 1\n(3) Test 3\n(4) Test 4\n(5) Test 5\n(6) Test 6\n(7) Test 7\n";
-    //cin >> testOpt;
-
-ifstream in;
-ofstream out;
+    ifstream in;
+    ofstream out;
 
 
-   // string output = argv[1];
-   // output += ".tour";
     in.open(argv[1]);
 
-    //out.open(output.c_str);
     string output = string(argv[1]);
     output += ".tour";
-    
-    out.open(output.c_str());
-    
 
-    cout << output << "*******************\n";
+    out.open(output.c_str());
+
 
 
     int trash;
@@ -47,7 +38,7 @@ ofstream out;
     in.open(argv[1]);
     size = size + 1;
 
-    int* unvisited = new int [size];
+    int* unvisited = new int[size];
     int* x = new int[size];
     int* y = new int[size];
     int* visited = new int[size];
@@ -68,7 +59,7 @@ ofstream out;
 
     int totalDis = 0;
     int current = 0;
-    //visited[0] = 0;
+
 
     for (int j = 0; j < size; j++)
     {
@@ -100,12 +91,12 @@ ofstream out;
                     {
                         shortest = dis;
                         shortNode = k;
-                        
+
                     }
                 }
-                
+
             }
-        
+
         }
         if (shortNode == 999999)
         {
@@ -115,14 +106,6 @@ ofstream out;
         current = shortNode;
         visited[j] = shortNode;
         totalDis = totalDis + shortest;
-
-        /*
-        cout << "path so far:\n";
-        for (int n = 0; n < size; n++)
-        {
-            cout <<  visited[n] << " \n";
-        }
-       */
 
     }
 
@@ -141,6 +124,4 @@ ofstream out;
     delete[] visited;
     delete[] x;
     delete[] y;
-
 }
-
