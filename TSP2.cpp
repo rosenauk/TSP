@@ -5,23 +5,29 @@
 #include <string>
 #include <iostream>
 #include <cstring>
+#include <chrono>
 
 using namespace std;
 
 int main(int argc, char* argv[])
 {
+    auto start = chrono::high_resolution_clock::now(); //start the clock
+    
+
     ifstream in;
     ofstream out;
 
-
     in.open(argv[1]);
 
+    
     string output = string(argv[1]);
     output += ".tour";
-
+    
     out.open(output.c_str());
 
 
+    cout << output << "*******************\n";
+    cout << "Processing..." << endl;
 
     int trash;
     int size;
@@ -38,7 +44,7 @@ int main(int argc, char* argv[])
     in.open(argv[1]);
     size = size + 1;
 
-    int* unvisited = new int[size];
+    int* unvisited = new int [size];
     int* x = new int[size];
     int* y = new int[size];
     int* visited = new int[size];
@@ -59,11 +65,11 @@ int main(int argc, char* argv[])
 
     int totalDis = 0;
     int current = 0;
-
+    //visited[0] = 0;
 
     for (int j = 0; j < size; j++)
     {
-        cout << "cities visited: " << j + 1 << " / " << size << '\n';
+        //cout << "cities visited: " << j + 1 << " / " << size << '\n';
 
         int shortest = 99999;
         int shortNode = 999999;
@@ -80,6 +86,7 @@ int main(int argc, char* argv[])
                     if (unvisited[k] == visited[l])
                     {
                         valid = false;
+                        break;
                     }
                 }
 
@@ -91,12 +98,12 @@ int main(int argc, char* argv[])
                     {
                         shortest = dis;
                         shortNode = k;
-
+                        
                     }
                 }
-
+                
             }
-
+        
         }
         if (shortNode == 999999)
         {
@@ -106,6 +113,14 @@ int main(int argc, char* argv[])
         current = shortNode;
         visited[j] = shortNode;
         totalDis = totalDis + shortest;
+
+        /*
+        cout << "path so far:\n";
+        for (int n = 0; n < size; n++)
+        {
+            cout <<  visited[n] << " \n";
+        }
+       */
 
     }
 
@@ -117,11 +132,22 @@ int main(int argc, char* argv[])
         out << visited[m];
         out << endl;
     }
+    out.close();
 
-    cout << "Tour completed \n";
+    auto end = chrono::high_resolution_clock::now(); //end the clock
+
+        //record duration, start - end, only for sorting algorithm
+    double time_taken = chrono::duration_cast<chrono::nanoseconds>(end - start).count(); 
+        
+    time_taken *= 1e-9; //convert to seconds keeping decimal points for precision
+  
+        cout << "Time Taken: " << fixed << time_taken << " seconds" << endl;
+        cout << "Tour completed \n";
 
     delete[] unvisited;
     delete[] visited;
     delete[] x;
     delete[] y;
+
 }
+
