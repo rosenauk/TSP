@@ -11,3 +11,11 @@ g++ TSP2.cpp -o main
 make sure:
 
 .cpp file is in the same place as any input files used
+
+
+New way to run with time tracking:
+
+g++ TSP2.cpp --std=c++11
+
+a.out <input file>
+
